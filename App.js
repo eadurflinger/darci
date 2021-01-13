@@ -1,13 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { BottomNavigation, Button, Provider as PaperProvider } from 'react-native-paper';
+import { StyleSheet, Text, Image, View } from 'react-native';
+
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider>
+      <View style={styles.container}>
+        <Image 
+          style={styles.tinyLogo}
+          source={require('./assets/darcilogo.png')}/>
+          <Button icon="camera">
+            Press me
+          </Button>
+        <StatusBar style="auto" />
+      </View>
+    </PaperProvider>
   );
 }
 
@@ -18,4 +28,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  tinyLogo: {
+    width: 200,
+    height: 200,
+  },
+
 });
